@@ -1,0 +1,48 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "vienna_hackaton_controller",
+      "cwd": "vienna_hackaton_controller",
+      "request": "launch",
+      "type": "dart"
+    },
+    {
+      "name": "vienna_hackaton_controller (profile mode)",
+      "cwd": "vienna_hackaton_controller",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile"
+    },
+    {
+      "name": "vienna_hackaton_controller (release mode)",
+      "cwd": "vienna_hackaton_controller",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release"
+    },
+    {
+      "name": "vienna_hackaton_display",
+      "cwd": "vienna_hackaton_display",
+      "request": "launch",
+      "type": "dart"
+    },
+    {
+      "name": "vienna_hackaton_display (profile mode)",
+      "cwd": "vienna_hackaton_display",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile"
+    },
+    {
+      "name": "vienna_hackaton_display (release mode)",
+      "cwd": "vienna_hackaton_display",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release"
+    }
+  ]
+}
