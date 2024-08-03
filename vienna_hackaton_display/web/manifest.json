@@ -1,6 +1,6 @@
 {
-    "name": "vienna_hackaton_display",
-    "short_name": "vienna_hackaton_display",
+    "name": "oida",
+    "short_name": "oida",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -1,4 +1,4 @@
-package at.vienna.hackaton.display.vienna_hackaton_display
+package com.example.oida
 
 import io.flutter.embedding.android.FlutterActivity
 

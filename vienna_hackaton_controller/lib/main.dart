@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:vienna_hackaton_controller/connect_page.dart';
+import 'package:vienna_hackaton_controller/accelerometer.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +19,7 @@ class Controller extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ConnectPage(),
+      home: Accelerometer(),
     );
   }
 }

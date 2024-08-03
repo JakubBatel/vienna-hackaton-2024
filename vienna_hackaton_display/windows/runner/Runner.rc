@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "at.vienna.hackaton.display" "\0"
-            VALUE "FileDescription", "vienna_hackaton_display" "\0"
+            VALUE "CompanyName", "com.example" "\0"
+            VALUE "FileDescription", "oida" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "vienna_hackaton_display" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2024 at.vienna.hackaton.display. All rights reserved." "\0"
-            VALUE "OriginalFilename", "vienna_hackaton_display.exe" "\0"
-            VALUE "ProductName", "vienna_hackaton_display" "\0"
+            VALUE "InternalName", "oida" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
+            VALUE "OriginalFilename", "oida.exe" "\0"
+            VALUE "ProductName", "oida" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
