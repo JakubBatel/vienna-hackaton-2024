@@ -12,7 +12,6 @@ class Accelerometer extends StatefulWidget {
 }
 
 class _AccelerometerState extends State<Accelerometer> with SingleTickerProviderStateMixin {
-  List<AccelerometerEvent> _accelerometerValues = [];
   late StreamSubscription<AccelerometerEvent> _accelerometerSubscription;
   late AnimationController _animationController;
   double _targetRotation = 0.0;
@@ -76,6 +75,11 @@ class _AccelerometerState extends State<Accelerometer> with SingleTickerProvider
                   ),
                 ),
                 const SizedBox(height: 40),
+                SvgPicture.asset(
+                  'assets/Sun_collectible.svg',
+                  width: 40,
+                  height: 40,
+                ),
                 const Text(
                   '2/5',
                   style: TextStyle(
