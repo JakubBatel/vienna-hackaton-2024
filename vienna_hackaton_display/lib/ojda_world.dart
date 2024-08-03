@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flame_forge2d/flame_forge2d.dart';
 import 'package:flutter/foundation.dart';
+import 'package:vienna_hackaton_display/components/background_component.dart';
 import 'package:vienna_hackaton_display/components/egg_component.dart';
 import 'package:vienna_hackaton_display/components/groud_component.dart';
 
@@ -49,8 +50,8 @@ class OjdaWorld extends Forge2DWorld {
   }
 
   Future<void> _loadLevel() async {
+    add(BackgroundComponent());
     add(GroundComponent(svgName: 'images/TryoutFloor.svg'));
-
     add(EggComponent(svgName: 'images/EggCharacter01.svg'));
   }
 }
