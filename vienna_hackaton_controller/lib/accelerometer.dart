@@ -81,7 +81,7 @@ class _AccelerometerState extends State<Accelerometer> with SingleTickerProvider
                       height: 200,
                     ),
                   ),
-                  const SizedBox(height: 40),
+                  const SizedBox(height: 20),
                   SvgPicture.asset(
                     'assets/Sun_collectible.svg',
                     width: 40,
@@ -95,12 +95,15 @@ class _AccelerometerState extends State<Accelerometer> with SingleTickerProvider
                       color: Color(0xFF25326E),
                     ),
                   ),
-                  // const SizedBox(height: 20),
-                  // if (_accelerometerValues.isEmpty)
-                  //   const Text(
-                  //     'No accelerometer data available',
-                  //     style: TextStyle(fontSize: 14, color: Colors.red),
-                  //   ),
+                  const SizedBox(height: 10),
+                  const Text(
+                    'Tap to Jump',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                      color: Color(0xFF94D8EB),
+                    ),
+                  ),
                 ],
               ),
             ),
