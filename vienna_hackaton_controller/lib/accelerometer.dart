@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 import 'dart:math' as math;
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:vibration/vibration.dart';
 
 class Accelerometer extends StatefulWidget {
   const Accelerometer({super.key});
@@ -48,56 +49,63 @@ class _AccelerometerState extends State<Accelerometer> with SingleTickerProvider
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          SvgPicture.asset(
-            'assets/Background-Phone_OIDA.svg',
-            fit: BoxFit.cover,
-          ),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                AnimatedBuilder(
-                  animation: _animationController,
-                  builder: (context, child) {
-                    return Transform.rotate(
-                      angle: _animationController.value * math.pi / 2 - math.pi / 4,
-                      child: child,
-                    );
-                  },
-                  child: SvgPicture.asset(
-                    'assets/EggCharacter01.svg',
-                    width: 200,
-                    height: 200,
-                  ),
-                ),
-                const SizedBox(height: 40),
-                SvgPicture.asset(
-                  'assets/Sun_collectible.svg',
-                  width: 40,
-                  height: 40,
-                ),
-                const Text(
-                  '2/5',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24,
-                    color: Color(0xFF25326E),
-                  ),
-                ),
-                // const SizedBox(height: 20),
-                // if (_accelerometerValues.isEmpty)
-                //   const Text(
-                //     'No accelerometer data available',
-                //     style: TextStyle(fontSize: 14, color: Colors.red),
-                //   ),
-              ],
+    return GestureDetector(
+      onTap: () async {
+        if (await Vibration.hasVibrator() ?? false) {
+          Vibration.vibrate(duration: 10);
+        }
+      },
+      child: Scaffold(
+        body: Stack(
+          fit: StackFit.expand,
+          children: [
+            SvgPicture.asset(
+              'assets/Background-Phone_OIDA.svg',
+              fit: BoxFit.cover,
             ),
-          ),
-        ],
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  AnimatedBuilder(
+                    animation: _animationController,
+                    builder: (context, child) {
+                      return Transform.rotate(
+                        angle: _animationController.value * math.pi / 2 - math.pi / 4,
+                        child: child,
+                      );
+                    },
+                    child: SvgPicture.asset(
+                      'assets/EggCharacter01.svg',
+                      width: 200,
+                      height: 200,
+                    ),
+                  ),
+                  const SizedBox(height: 40),
+                  SvgPicture.asset(
+                    'assets/Sun_collectible.svg',
+                    width: 40,
+                    height: 40,
+                  ),
+                  const Text(
+                    '2/5',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                      color: Color(0xFF25326E),
+                    ),
+                  ),
+                  // const SizedBox(height: 20),
+                  // if (_accelerometerValues.isEmpty)
+                  //   const Text(
+                  //     'No accelerometer data available',
+                  //     style: TextStyle(fontSize: 14, color: Colors.red),
+                  //   ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
