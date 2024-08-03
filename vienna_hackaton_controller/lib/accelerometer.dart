@@ -22,7 +22,7 @@ class _AccelerometerState extends State<Accelerometer> with SingleTickerProvider
 
     _animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 400),
     );
 
     _accelerometerSubscription = accelerometerEvents.listen((event) {
@@ -35,7 +35,7 @@ class _AccelerometerState extends State<Accelerometer> with SingleTickerProvider
     _targetRotation = _targetRotation.clamp(-math.pi / 4, math.pi / 4);
     _animationController.animateTo(
       (_targetRotation + math.pi / 4) / (math.pi / 2),
-      curve: Curves.easeOut,
+      curve: Curves.easeInOut,
     );
   }
 
