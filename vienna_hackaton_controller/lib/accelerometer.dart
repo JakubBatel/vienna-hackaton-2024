@@ -23,7 +23,7 @@ class _AccelerometerState extends State<Accelerometer> with SingleTickerProvider
 
     _animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 200), // Adjust this value to change animation speed
+      duration: const Duration(milliseconds: 200),
     );
 
     _accelerometerSubscription = accelerometerEvents.listen((event) {
@@ -32,14 +32,8 @@ class _AccelerometerState extends State<Accelerometer> with SingleTickerProvider
   }
 
   void _updateRotation(double yValue) {
-    // Convert accelerometer data to rotation angle
-    // Adjust the multiplier to control sensitivity
     _targetRotation = yValue * 0.5;
-
-    // Limit rotation to a maximum of 45 degrees in either direction
     _targetRotation = _targetRotation.clamp(-math.pi / 4, math.pi / 4);
-
-    // Animate to the new rotation
     _animationController.animateTo(
       (_targetRotation + math.pi / 4) / (math.pi / 2),
       curve: Curves.easeOut,
@@ -56,32 +50,41 @@ class _AccelerometerState extends State<Accelerometer> with SingleTickerProvider
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Oida'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            AnimatedBuilder(
-              animation: _animationController,
-              builder: (context, child) {
-                return Transform.rotate(
-                  angle: _animationController.value * math.pi / 2 - math.pi / 4,
-                  child: child,
-                );
-              },
-              child: SvgPicture.asset(
-                'assets/EggCharacter01.svg',
-                width: 200,
-                height: 200,
-              ),
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          SvgPicture.asset(
+            'assets/Background-Phone_OIDA.svg',
+            fit: BoxFit.cover,
+          ),
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                AnimatedBuilder(
+                  animation: _animationController,
+                  builder: (context, child) {
+                    return Transform.rotate(
+                      angle: _animationController.value * math.pi / 2 - math.pi / 4,
+                      child: child,
+                    );
+                  },
+                  child: SvgPicture.asset(
+                    'assets/EggCharacter01.svg',
+                    width: 200,
+                    height: 200,
+                  ),
+                ),
+                // const SizedBox(height: 20),
+                // if (_accelerometerValues.isEmpty)
+                //   const Text(
+                //     'No accelerometer data available',
+                //     style: TextStyle(fontSize: 14, color: Colors.red),
+                //   ),
+              ],
             ),
-            const SizedBox(height: 20),
-            // if (_accelerometerValues.isEmpty)
-            //   const Text('No accelerometer data available', style: TextStyle(fontSize: 14, color: Colors.red)),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
