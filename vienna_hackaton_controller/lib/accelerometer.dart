@@ -75,6 +75,15 @@ class _AccelerometerState extends State<Accelerometer> with SingleTickerProvider
                     height: 200,
                   ),
                 ),
+                const SizedBox(height: 40),
+                const Text(
+                  '2/5',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24,
+                    color: Color(0xFF25326E),
+                  ),
+                ),
                 // const SizedBox(height: 20),
                 // if (_accelerometerValues.isEmpty)
                 //   const Text(
